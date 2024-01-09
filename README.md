@@ -2,7 +2,7 @@
 - 👀 I’m interested in Programming
 - 🌱 I’m currently learning various Programming Languages
 - 💞️ I’m looking to collaborate on Development
-- 📫 How to reach me via feminasc442@gmail.com
+- 📫 How to reach me is, via feminasc442@gmail.com
 - 😄 Pronouns: Feminas
 - ⚡ Fun fact: Nothing
 
