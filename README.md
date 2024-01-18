@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @feminaschittalakkott
+- 👋 Hi, I’m @
 - 👀 I’m interested in Programming
 - 🌱 I’m currently learning various Programming Languages
 - 💞️ I’m looking to collaborate on Development
