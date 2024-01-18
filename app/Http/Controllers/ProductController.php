@@ -37,6 +37,7 @@ class ProductController extends Controller
 
         $file_name = time() . '.' . request()->image->getClientOriginalExtension();
         request()->image->move(public_path('image'), $file_name);
+
         $product->name = $request->name;
         $product->description = $request->description;
         $product->image = $file_name;
@@ -46,5 +47,46 @@ class ProductController extends Controller
 
         $product->save();
         return redirect()->route("products.index")->with('success', 'Product Added Successfully');
+    }
+
+    public function edit($id) {
+        $product = Product::findOrFail($id);
+        return view('products.edit', ['product'=>$product]);
+    }
+
+    public function update(Request $request, Product $product) {
+        $request->validate([
+            'name'=> 'Required'
+        ]);
+        $file_name = $request->hidden_product_image;
+
+        if ($request->image != '') {
+            $file_name = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('image'), $file_name);
+        }
+
+        $product = Product::find($request->hidden_id);
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->image = $file_name;
+        $product->category = $request->category;
+        $product->quantity = $request->quantity;
+        $product->price = $request->price;
+
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', 'Product has been updated successfully!');
+    }
+
+    public function destroy($id) {
+        $product = Product::findOrFail($id);
+        $image_path = public_path()."/image/";
+        $image = $image_path.$product->image;
+        if (file_exists($image)) {
+            @unlink($image);
+        }
+        $product->delete();
+        return redirect('products')->with('success', 'Product deleted successfully !');
     }
 }

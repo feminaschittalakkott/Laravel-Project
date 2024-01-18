@@ -5,7 +5,7 @@
 ========================================================================== */
 
 :root {
-    --body-color: #6c5ce7;
+    --body-color: #52597e;
     --primary-color: #FFF;
     --primary-color-dark: #f1f1f1;
     --text-dark: #000000;
@@ -199,6 +199,7 @@
   input[type="submit"],
   input[type="reset"] {
     margin-top: 1em;
+    background: #e0e0e0;
     border: 1px solid #e0e0e0;
     background-color: none;
     color: var(--text-dark);
@@ -331,6 +332,7 @@
   }
   .table{
     background: #FFF; 
+    border-radius: 8px;
   }
   .table-filter{
     border-bottom: 1px solid #e0e0e0;
@@ -362,6 +364,7 @@
     margin-top: 10px;
     display: grid;
     grid-template-columns: minmax(150px, auto) minmax(180px, 1fr);
+    border-radius: 8px;
                 
   }
   .search-select {
@@ -521,6 +524,7 @@
     background-color: #f1f1f1;
     grid-template-columns: 50px 1fr 120px 120px 120px;
     font-family: var(--font-family);
+    border-radius: 8px;
   }
   
   .img-product {
