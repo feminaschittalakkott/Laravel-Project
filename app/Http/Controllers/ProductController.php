@@ -21,6 +21,12 @@ class ProductController extends Controller
         }
         return view('products.index', ['products' => $products])->with('1', (request()->input('page', 1) -1) *5);
     }
+    public function home()
+    {
+        $products = Product::all();
+
+        return view('welcome', compact('products'));
+    }
 
     public function create() {
         return view('products.create');

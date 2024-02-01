@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('layouts.navbar')
 <main class="container">
         <section>
             <div class="titlebar">
@@ -36,18 +37,9 @@
                     </div>
                 </div>
                 <form action="{{ route('products.index') }}" method="GET" accept-charset="UTF-8" role="search">
-                    <div class="table-search">   
-                        <div>
-                            <button class="search-select">
-                            Search Product
-                            </button>
-                            <span class="search-select-arrow">
-                                <i class="fas fa-caret-down"></i>
-                            </span>
-                        </div>
-                        <div class="relative">
+                    <div class="table-search">
                             <input class="search-input" type="text" name="search" placeholder="Search product..." value="{{ request('search') }}">
-                        </div>
+                            <button class="search-btn"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
                 <div class="table-product-head">
@@ -65,13 +57,13 @@
                             <p> {{ $product->category }} </p>
                             <p> {{ $product->quantity }} </p>
                             <div style="display:flex">     
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn-link btn btn-success" style="padding-top: 4px; padding-bottom: 4px;">
+                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-edit">
                                     <i class="fas fa-pencil-alt" ></i> 
                                 </a>
                                 <form action="{{ route('products.destroy', $product->id) }}" method="post">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-danger" onclick="deleteConfirm(event)">
+                                    <button class="btn btn-delete" onclick="deleteConfirm(event)">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
